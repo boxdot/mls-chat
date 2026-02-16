@@ -1,0 +1,31 @@
+[package]
+name = "mls-chat"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.58", features = ["derive"] }
+openmls = "0.8.1"
+openmls_traits = "0.5.0"
+openmls_sqlx_storage = "0.2.0"
+tokio = { version = "1.49.0", features = ["full"] }
+tonic = "0.14.3"
+tonic-prost = "0.14.3"
+prost = "0.14.3"
+anyhow = "1.0.101"
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.22", features = ["env-filter"] }
+tokio-stream = "0.1.18"
+sqlx = { version = "0.8.6", features = ["chrono", "sqlite", "uuid"] }
+serde_json = "1.0.149"
+serde = "1.0.228"
+openmls_rust_crypto = "0.5.1"
+dashmap = "6.1.0"
+tower-http = { version = "0.6.8", features = ["trace"] }
+http = "1.4.0"
+uuid = { version = "1.21.0", features = ["v4"] }
+
+[build-dependencies]
+tonic-prost-build = "0.14.3"
+prost-build = "0.14.3"
+anyhow = "1.0.101"
