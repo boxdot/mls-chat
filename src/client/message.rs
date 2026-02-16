@@ -109,14 +109,15 @@ impl Client {
         let sender = match processed_message.sender() {
             Sender::Member(leaf_index) => {
                 let member = group.member_at(*leaf_index).context("Member not found")?;
-                String::from_utf8_lossy(&member.credential.serialized_content()).into_owned()
+                String::from_utf8_lossy(member.credential.serialized_content()).into_owned()
             }
             _ => {
                 warn!("Received message from non-member");
                 return Ok(());
             }
         };
-        Ok(match processed_message.into_content() {
+
+        match processed_message.into_content() {
             ProcessedMessageContent::ApplicationMessage(application_message) => {
                 let text = String::from_utf8_lossy(&application_message.into_bytes()).into_owned();
                 println!("{sender}: {text}");
@@ -130,6 +131,8 @@ impl Client {
             ProcessedMessageContent::StagedCommitMessage(staged_commit) => {
                 group.merge_staged_commit(&provider, *staged_commit)?;
             }
-        })
+        }
+
+        Ok(())
     }
 }

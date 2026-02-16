@@ -1,0 +1,26 @@
+{
+  "db_name": "SQLite",
+  "query": "WITH target_messages AS (\n                SELECT message_id\n                FROM server_message\n                WHERE recipient = ?\n                ORDER BY created_at ASC\n            )\n            DELETE FROM server_message\n            WHERE message_id IN (SELECT message_id FROM target_messages)\n            RETURNING\n                content,\n                created_at as \"created_at: DateTime<Utc>\"",
+  "describe": {
+    "columns": [
+      {
+        "name": "content",
+        "ordinal": 0,
+        "type_info": "Blob"
+      },
+      {
+        "name": "created_at: DateTime<Utc>",
+        "ordinal": 1,
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "fb90167375d4f9a08176cf97570e19b583bf3a12356b236c88a9bcad51b12f2d"
+}

@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO server_key_package (\n                package_id, client_id, package, created_at\n            ) VALUES (?, ?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 4
+    },
+    "nullable": []
+  },
+  "hash": "2e033046fe67b7af6512f2bed62b2fe2ffa35c9a5328f7fc86ca3d93c3f2314b"
+}

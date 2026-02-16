@@ -19,7 +19,6 @@ use sqlx::{
 use tokio::sync::mpsc;
 use tokio_stream::{Stream, StreamExt, wrappers::ReceiverStream};
 use tonic::{Request, Response, Status};
-use tracing::info;
 use uuid::Uuid;
 
 pub struct ChatServiceImpl {

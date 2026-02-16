@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO client_user (\n                username,\n                signature_private_key,\n                credential_with_key\n            ) VALUES (?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 3
+    },
+    "nullable": []
+  },
+  "hash": "d5624e7b095758f7ca2b617d70c3ce51decfe13ba687f0f776eb90cdbc4f1b2d"
+}

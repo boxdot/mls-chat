@@ -1,0 +1,26 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT\n                signature_private_key,\n                credential_with_key\n            FROM client_user\n            WHERE username = ?",
+  "describe": {
+    "columns": [
+      {
+        "name": "signature_private_key",
+        "ordinal": 0,
+        "type_info": "Blob"
+      },
+      {
+        "name": "credential_with_key",
+        "ordinal": 1,
+        "type_info": "Blob"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "15a5015da9a17ca116edff86828c28478e693ad4439368dd425d574a771e464b"
+}

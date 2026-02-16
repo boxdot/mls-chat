@@ -1,0 +1,20 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT package FROM server_key_package WHERE client_id = ?",
+  "describe": {
+    "columns": [
+      {
+        "name": "package",
+        "ordinal": 0,
+        "type_info": "Blob"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "914bab23db0359abef219349af66b03f67aa00ee2fe7ee736fbea0587e9487ba"
+}
