@@ -19,6 +19,7 @@ use sqlx::{
 use tokio::sync::mpsc;
 use tokio_stream::{Stream, StreamExt, wrappers::ReceiverStream};
 use tonic::{Request, Response, Status};
+use tracing::info;
 use uuid::Uuid;
 
 pub struct ChatServiceImpl {
@@ -66,6 +67,8 @@ impl ChatService for ChatServiceImpl {
 
         let message_id = Uuid::new_v4();
         let created_at = Utc::now();
+
+        info!(?request.recipients, "Received message");
 
         for recipient in request.recipients {
             if let Some(tx) = self.connected.get(&recipient)

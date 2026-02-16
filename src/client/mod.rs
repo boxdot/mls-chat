@@ -10,7 +10,7 @@ use tracing::info;
 
 use crate::{grpc::chat_service_client::ChatServiceClient, provider::JsonCodec};
 
-pub mod create_group;
+pub mod group;
 pub mod member;
 pub mod message;
 pub mod register;

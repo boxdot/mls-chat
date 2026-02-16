@@ -18,6 +18,11 @@ enum Commands {
     Register {},
     /// Create a new group
     CreateGroup {},
+    /// Update own key material in the group
+    UpdateGroup {
+        #[arg(short, long)]
+        group: Uuid,
+    },
     /// Add a member to a group
     AddMember {
         #[arg(short, long)]
@@ -60,11 +65,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let group_id = client.create_group(args.user).await?;
             println!("{group_id}");
         }
+        Commands::UpdateGroup { group } => {
+            info!(%group, "Updating group key material");
+            client.update_group(args.user, group).await?;
+        }
         Commands::Send { group, message } => {
             info!(%group, "Sending message to group");
             client.send(args.user, group, message).await?;
-
-            // TODO: Implement send message logic
         }
         Commands::Receive {} => {
             info!("Receiving messages");
